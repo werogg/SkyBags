@@ -35,20 +35,20 @@ public class BagCommand implements CommandExecutor {
                     final Bag bag = new Bag(argsPlayer, sourcePlayer, getBagSize(argsPlayer), true, skybags);
                     sourcePlayer.openInventory(bag.getBag());
                     Text text = Text.of(TextColors.GRAY, "[", TextColors.AQUA, TextStyles.BOLD, "S", TextColors.WHITE,
-                            TextStyles.BOLD, "C", TextColors.GRAY, TextStyles.RESET, "]  ", TextColors.GOLD,
+                            TextStyles.BOLD, "C", TextColors.GRAY, TextStyles.RESET, "] ", TextColors.GOLD,
                             "Has abierto la mochila de ", TextColors.GREEN, argsPlayer.getName());
                     sourcePlayer.sendMessage(text);
-                } else throw new CommandPermissionException(Text.of("You don't have permissions to spectate a bag."));
+                } else throw new CommandPermissionException(Text.of("No tienes permisos para inspeccionar una mochila."));
             } else {
                 if (sourcePlayer.hasPermission(BagPermissions.COMMAND_BAG)) {
                     final Bag bag = new Bag(sourcePlayer, sourcePlayer, getBagSize(sourcePlayer), true, skybags);
                     sourcePlayer.openInventory(bag.getBag());
 
                     Text text = Text.of(TextColors.GRAY, "[", TextColors.AQUA, TextStyles.BOLD, "S", TextColors.WHITE,
-                            TextStyles.BOLD, "C", TextColors.GRAY, TextStyles.RESET, "]  ", TextColors.GOLD,
+                            TextStyles.BOLD, "C", TextColors.GRAY, TextStyles.RESET, "] ", TextColors.GOLD,
                             "Has abierto tu mochila!");
                     sourcePlayer.sendMessage(text);
-                } else throw new CommandPermissionException(Text.of("You don't have a bag."));
+                } else throw new CommandPermissionException(Text.of("No tienes una mochila."));
             }
         }
         return CommandResult.success();
